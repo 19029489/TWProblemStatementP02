@@ -21,11 +21,7 @@ public class MainActivity extends AppCompatActivity {
         tvC347.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Grade week1= new Grade("B");
                 Intent i = new Intent(MainActivity.this, SecondActivity.class);
-
-                i.putExtra("grade", week1);
-
                 startActivity(i);
             }
         });
