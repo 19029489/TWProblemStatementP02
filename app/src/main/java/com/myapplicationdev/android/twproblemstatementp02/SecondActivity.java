@@ -16,6 +16,20 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_second);
 
         btnRP = (Button) findViewById(R.id.buttonInfo);
+        btnEmail = (Button) findViewById(R.id.buttonEmail);
+
+        btnEmail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent email = new Intent(Intent.ACTION_SEND);
+                email.putExtra(Intent.EXTRA_EMAIL,
+                        new String[]{"jason.lim.rp.sg@gmail.com"});
+                email.putExtra(Intent.EXTRA_TEXT,
+                        "Hi faci,\n\nI am ...\nPlease see my remarks so far, thank you!\n\n");
+                email.setType("message/rfc822");
+                startActivity(Intent.createChooser(email, "Choose an Email client: "));
+            }
+        });
         btnRP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
