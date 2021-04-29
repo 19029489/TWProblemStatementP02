@@ -8,9 +8,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 public class SecondActivity extends AppCompatActivity {
     Button btnEmail, btnRP, btnAdd;
+    TextView tvWeek, tvGrade;
     ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +22,8 @@ public class SecondActivity extends AppCompatActivity {
         btnRP = (Button) findViewById(R.id.buttonInfo);
         btnEmail = (Button) findViewById(R.id.buttonEmail);
         btnAdd = (Button) findViewById(R.id.buttonAdd);
-
+        tvWeek = (TextView) findViewById(R.id.textViewWeek);
+        tvGrade = (TextView) findViewById(R.id.textViewGrade);
         lv = (ListView)findViewById(R.id.listView);
 
         btnEmail.setOnClickListener(new View.OnClickListener() {
@@ -30,7 +33,8 @@ public class SecondActivity extends AppCompatActivity {
                 email.putExtra(Intent.EXTRA_EMAIL,
                         new String[]{"jason.lim.rp.sg@gmail.com"});
                 email.putExtra(Intent.EXTRA_TEXT,
-                        "Hi faci,\n\nI am ...\nPlease see my remarks so far, thank you!\n\n");
+                        "Hi faci,\n\nI am ...\nPlease see my remarks so far, thank you!\n\n" +
+                                tvWeek +": DG: "+tvGrade+"\n");
                 email.setType("message/rfc822");
                 startActivity(Intent.createChooser(email, "Choose an Email client: "));
             }
