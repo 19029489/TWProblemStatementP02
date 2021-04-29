@@ -52,6 +52,7 @@ public class SecondActivity extends AppCompatActivity {
                 }
                 email.putExtra(Intent.EXTRA_TEXT,
                         "Hi faci,\n\nI am ...\nPlease see my remarks so far, thank you!\n\n" + message);
+                message = "";
                 email.setType("message/rfc822");
                 startActivity(Intent.createChooser(email, "Choose an Email client: "));
             }
