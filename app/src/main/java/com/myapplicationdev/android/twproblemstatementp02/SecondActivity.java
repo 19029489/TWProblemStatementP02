@@ -27,5 +27,12 @@ public class SecondActivity extends AppCompatActivity {
                 startActivity(rpIntent);
             }
         });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent addIntent = new Intent(SecondActivity.this, ThirdActivity.class);
+            }
+        });
     }
 }
