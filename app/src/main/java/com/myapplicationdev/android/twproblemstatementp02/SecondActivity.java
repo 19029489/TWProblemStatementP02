@@ -9,13 +9,16 @@ import android.view.View;
 import android.widget.Button;
 
 public class SecondActivity extends AppCompatActivity {
-    Button btnEmail, btnRP;
+    Button btnEmail, btnRP, btnAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
 
         btnRP = (Button) findViewById(R.id.buttonInfo);
+        btnEmail = (Button) findViewById(R.id.buttonEmail);
+        btnAdd = (Button) findViewById(R.id.buttonAdd);
+
         btnRP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
