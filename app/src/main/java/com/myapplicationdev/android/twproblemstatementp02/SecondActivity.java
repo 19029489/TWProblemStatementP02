@@ -18,6 +18,7 @@ public class SecondActivity extends AppCompatActivity {
     ListView lv;
     ArrayAdapter aa;
     ArrayList<Grade> alGrade;
+    String message = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +46,12 @@ public class SecondActivity extends AppCompatActivity {
                 Intent email = new Intent(Intent.ACTION_SEND);
                 email.putExtra(Intent.EXTRA_EMAIL,
                         new String[]{"jason.lim.rp.sg@gmail.com"});
-                email.putExtra(Intent.EXTRA_TEXT,
-                        "Hi faci,\n\nI am ...\nPlease see my remarks so far, thank you!\n\n");
+
                 for(int i = 0; i < alGrade.size(); i++){
-                    int week = i+1;
-                    String grade = alGrade.get(i).getGrade();
-                    email.putExtra(Intent.EXTRA_TEXT,
-                            "Week " + week + ": DG:" + grade);
+                    message += "Week " + (i+1) + ": DG:" + alGrade.get(i).getGrade() + "\n";
                 }
+                email.putExtra(Intent.EXTRA_TEXT,
+                        "Hi faci,\n\nI am ...\nPlease see my remarks so far, thank you!\n\n" + message);
                 email.setType("message/rfc822");
                 startActivity(Intent.createChooser(email, "Choose an Email client: "));
             }
