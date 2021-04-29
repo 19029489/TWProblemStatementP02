@@ -37,7 +37,7 @@ public class GradeAdapter extends ArrayAdapter<Grade> {
         Grade currentGrade = grade.get(position);
 
         tvGrade.setText(currentGrade.getGrade());
-        tvWeek.setText("Week " + position+1);
+        tvWeek.setText("Week " + (position+1));
 
         // Return the nicely done up View to the ListView
         return rowView;
