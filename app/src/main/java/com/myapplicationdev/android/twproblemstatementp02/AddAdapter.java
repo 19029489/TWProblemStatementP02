@@ -28,7 +28,7 @@ class AddAdapter extends ArrayAdapter<Grade> {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         // "Inflate" the row.xml as the layout for the View object
-        View rowView = inflater.inflate(R.layout.row2, parent, false);
+        View rowView = inflater.inflate(R.layout.row, parent, false);
 
         // Get the TextView object
         tvGrade = (TextView) rowView.findViewById(R.id.textViewGrade);

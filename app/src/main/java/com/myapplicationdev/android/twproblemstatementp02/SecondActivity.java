@@ -71,7 +71,9 @@ public class SecondActivity extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String week = String.valueOf(alGrade.size()+1);
                 Intent addIntent = new Intent(SecondActivity.this, ThirdActivity.class);
+                addIntent.putExtra("week", week);
                 startActivityForResult(addIntent, requestCodeForAdd);
             }
         });

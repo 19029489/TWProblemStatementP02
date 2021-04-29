@@ -17,12 +17,14 @@ import java.util.ArrayList;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class ThirdActivity extends AppCompatActivity {
 
     Button btnSubmit;
     RadioGroup rgGrade;
     RadioButton rgButton;
+    TextView tvWeek;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,17 +33,20 @@ public class ThirdActivity extends AppCompatActivity {
 
         btnSubmit = (Button) findViewById(R.id.buttonSubmit);
         rgGrade = findViewById(R.id.radioGroupGrade);
+        tvWeek = (TextView) findViewById(R.id.textViewWeek);
+
+        Intent i = getIntent();
+        tvWeek.setText("Week " + i.getStringExtra("week"));
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 int selectedId = rgGrade.getCheckedRadioButtonId();
-                Log.d("selectedId", selectedId+"");
                 rgButton = (RadioButton) findViewById(selectedId);
-                Intent i = new Intent();
-                i.putExtra("Grade", rgButton.getText().toString());
-                Log.d("grade1", rgButton.getText().toString());
-                setResult(RESULT_OK, i);
+                Intent o = new Intent();
+                o.putExtra("Grade", rgButton.getText().toString());
+                setResult(RESULT_OK, o);
                 finish();
             }
         });
