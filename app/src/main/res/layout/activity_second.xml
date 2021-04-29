@@ -14,28 +14,33 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:layout_gravity="center|bottom">
 
         <Button
             android:id="@+id/buttonInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="INFO" />
+            android:text="INFO"
+            android:layout_gravity="bottom"/>
 
         <Button
             android:id="@+id/buttonAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="ADD" />
+            android:text="ADD"
+            android:layout_gravity="bottom"/>
 
         <Button
             android:id="@+id/buttonEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="EMAIL FACI" />
+            android:text="EMAIL FACI"
+            android:layout_gravity="bottom"/>
     </LinearLayout>
 </LinearLayout>
