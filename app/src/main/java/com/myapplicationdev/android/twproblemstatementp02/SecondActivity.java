@@ -7,9 +7,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class SecondActivity extends AppCompatActivity {
     Button btnEmail, btnRP, btnAdd;
+    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,6 +20,8 @@ public class SecondActivity extends AppCompatActivity {
         btnRP = (Button) findViewById(R.id.buttonInfo);
         btnEmail = (Button) findViewById(R.id.buttonEmail);
         btnAdd = (Button) findViewById(R.id.buttonAdd);
+
+        lv = (ListView)findViewById(R.id.listView);
 
         btnEmail.setOnClickListener(new View.OnClickListener() {
             @Override
