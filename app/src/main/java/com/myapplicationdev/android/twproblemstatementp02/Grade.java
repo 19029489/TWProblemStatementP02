@@ -1,6 +1,8 @@
 package com.myapplicationdev.android.twproblemstatementp02;
 
-public class Grade {
+import java.io.Serializable;
+
+public class Grade implements Serializable {
     private String grade;
 
     public Grade(String grade) {
