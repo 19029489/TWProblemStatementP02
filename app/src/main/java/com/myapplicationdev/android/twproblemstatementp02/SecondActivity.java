@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,6 +20,7 @@ public class SecondActivity extends AppCompatActivity {
     ArrayAdapter aa;
     ArrayList<Grade> alGrade;
     String message = "";
+    int requestCodeForAdd = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,8 +72,29 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent addIntent = new Intent(SecondActivity.this, ThirdActivity.class);
-                startActivity(addIntent);
+                startActivityForResult(addIntent, requestCodeForAdd);
             }
         });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == RESULT_OK){
+            if (data != null) {
+                // Get data passed back from 3rd activity
+                String grade = data.getStringExtra("Grade");
+                Log.d("grade", grade);
+                String statement = "";
+
+                if(requestCode == requestCodeForAdd){
+                    alGrade.add(new Grade(grade));
+                }
+
+                aa.notifyDataSetChanged();
+
+            }
+        }
+    }
+
 }

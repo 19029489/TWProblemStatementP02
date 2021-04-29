@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -14,15 +15,14 @@ import java.util.ArrayList;
 
 
 import android.os.Bundle;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 public class ThirdActivity extends AppCompatActivity {
 
     Button btnSubmit;
     RadioGroup rgGrade;
-    ListView lv;
-    ArrayAdapter aa;
-    ArrayList<Grade> alGrade;
+    RadioButton rgButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +30,17 @@ public class ThirdActivity extends AppCompatActivity {
         setContentView(R.layout.activity_third);
 
         btnSubmit = (Button) findViewById(R.id.buttonSubmit);
-
-        lv = (ListView)findViewById(R.id.listView);
-
-        alGrade = new ArrayList<Grade>();
-        alGrade.add(new Grade("B"));
-        alGrade.add(new Grade("C"));
-        alGrade.add(new Grade("A"));
-
-        aa = new GradeAdapter(this, R.layout.row, alGrade);
-        lv.setAdapter(aa);
-
+        rgGrade = findViewById(R.id.radioGroupGrade);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int selectedId = rgGrade.getCheckedRadioButtonId();
+                Log.d("selectedId", selectedId+"");
+                rgButton = (RadioButton) findViewById(selectedId);
                 Intent i = new Intent();
-                i.putExtra("Grade", rgGrade.isSelected());
+                i.putExtra("Grade", rgButton.getText().toString());
+                Log.d("grade1", rgButton.getText().toString());
                 setResult(RESULT_OK, i);
                 finish();
             }
