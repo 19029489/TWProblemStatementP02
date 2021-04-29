@@ -11,6 +11,7 @@
         android:id="@+id/textViewC347"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="C347" />
+        android:text="C347"
+        android:textSize="10pt"/>
 
 </LinearLayout>
